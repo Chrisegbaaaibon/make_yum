@@ -43,7 +43,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                   ),
                   const SizedBox(height: 20),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    padding:  const EdgeInsets.symmetric(horizontal: 40),
                     child: Text(
                       onboardingScreens[index].description,
                       textAlign: TextAlign.center,
@@ -81,6 +81,24 @@ class _OnboardingViewState extends State<OnboardingView> {
               ),
             ),
           ),
+          //Positoned skip button
+          Positioned(
+            top: 40,
+            right: 20,
+            child: TextButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/home');
+              },
+              child: const Text(
+                'Skip',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+          ),
+
           Positioned(
             bottom: 20,
             right: 20,
@@ -107,5 +125,3 @@ class _OnboardingViewState extends State<OnboardingView> {
     );
   }
 }
-
-// Random comment
