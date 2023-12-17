@@ -27,8 +27,7 @@ class MyApp extends StatelessWidget {
           900: Color(0xFF004628),
         }),
       ),
-      // home: const OnboardingView(),
-     home: const Text('Hello World')
+      home: const OnboardingView(),
     );
   }
 }
