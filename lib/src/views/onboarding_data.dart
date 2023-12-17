@@ -30,6 +30,6 @@ List<OnboardingScreen> onboardingScreens = [
     title: 'Get recommendations!',
     description:
         'Get recommendations for recipes based on your dietary preferences!',
-    imageUrl: 'assets/images/onboarding1.png',
+    imageUrl: 'assets/images/onboarding1.jpg',
   ),
 ];
