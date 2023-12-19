@@ -5,7 +5,18 @@ class GridViewBuilderView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Example data for your grid items
-    final List<String> meals = ["Meal 1", "Meal 2", "Meal 3", "Meal 4", "Meal 5", "Meal 6", "Meal 7", "Meal 8", "Meal 9", "Meal 10"];
+    final List<String> meals = [
+      "Meal 1",
+      "Meal 2",
+      "Meal 3",
+      "Meal 4",
+      "Meal 5",
+      "Meal 6",
+      "Meal 7",
+      "Meal 8",
+      "Meal 9",
+      "Meal 10"
+    ];
 
     return GridView.builder(
       padding: EdgeInsets.all(10),
@@ -21,10 +32,10 @@ class GridViewBuilderView extends StatelessWidget {
           onTap: () {
             // Implement action for the grid item
             //Navigator.push(
-              //context,
-              //MaterialPageRoute(
-                //builder: (context) => ,
-              //),
+            //context,
+            //MaterialPageRoute(
+            //builder: (context) => ,
+            //),
             //);
           },
           child: Container(
@@ -35,7 +46,7 @@ class GridViewBuilderView extends StatelessWidget {
             child: Center(
               child: Text(
                 meals[index],
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
           ),
@@ -44,4 +55,3 @@ class GridViewBuilderView extends StatelessWidget {
     );
   }
 }
-

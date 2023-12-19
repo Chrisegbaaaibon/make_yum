@@ -4,22 +4,21 @@ import 'package:make_yum/src/views/search_view.dart';
 import 'package:make_yum/src/views/profile_view.dart';
 import 'package:make_yum/src/views/grid_view_home.dart';
 import 'package:make_yum/src/views/categories_view.dart';
+
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
-  
+
   @override
-  _HomeViewState createState() => _HomeViewState();
-  
+  State<HomeView> createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
-
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
-   const GridViewBuilderView(),
-   const SearchView(),
-   const ProfileView(),
-   const CategoryView(),
+    const GridViewBuilderView(),
+    const SearchView(),
+    const ProfileView(),
+    const CategoryView(),
   ];
 
   void _onItemTapped(int index) {
@@ -27,7 +26,6 @@ class _HomeViewState extends State<HomeView> {
       _selectedIndex = index;
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +54,7 @@ class _HomeViewState extends State<HomeView> {
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-         BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'Search',
           ),
@@ -71,27 +69,24 @@ class _HomeViewState extends State<HomeView> {
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        selectedItemColor: Colors.white, // Optional: for better visibility
-        unselectedItemColor: Colors.white60, // Optional: for better visibility
-
+        selectedItemColor: Theme.of(context).colorScheme.primary,
+        unselectedItemColor: Colors.grey.shade600,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // Implement action for the button
-         Navigator.push(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => const AddRecipeView(),
             ),
-           ); 
+          );
         },
         child: const Icon(Icons.add),
       ),
     );
   }
 }
-
-
 
 class CategoryRecipesView extends StatelessWidget {
   const CategoryRecipesView({Key? key}) : super(key: key);
@@ -102,10 +97,9 @@ class CategoryRecipesView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Category Recipes'),
       ),
-      body: Center(
-        child: const Text('Recipes for a specific category'),
+      body: const Center(
+        child: Text('Recipes for a specific category'),
       ),
     );
   }
 }
-
