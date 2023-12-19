@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:make_yum/src/views/onboarding_view.dart';
+import 'package:make_yum/src/views/home_view.dart';
+import 'package:make_yum/src/views/search_view.dart';
+import 'package:make_yum/src/views/profile_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +31,11 @@ class MyApp extends StatelessWidget {
         }),
       ),
       home: const OnboardingView(),
+      routes: {
+        '/home': (context) => const HomeView(),
+        '/search': (context) => const SearchView(),
+        '/profile': (context) => const ProfileView(),
+      },
     );
   }
 }
