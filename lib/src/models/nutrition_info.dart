@@ -1,5 +1,5 @@
 class NutritionInfo {
-  String? carnohydrates;
+  String? carbohydrates;
   String? protein;
   String? fat;
   String? sodium;
@@ -8,7 +8,7 @@ class NutritionInfo {
   String? other;
 
   NutritionInfo(
-      {this.carnohydrates,
+      {this.carbohydrates,
       this.protein,
       this.fat,
       this.sodium,

@@ -10,12 +10,13 @@ class User {
   List<Recipe>? favouriteRecipes;
   NutritionInfo? nutritionInfo;
 
-  User(
-      {required this.id,
-      required this.name,
-      required this.email,
-      this.imageUrl,
-      this.dietaryPreference,
-      this.favouriteRecipes,
-      this.nutritionInfo});
+  User({
+    required this.id,
+    required this.name,
+    required this.email,
+    this.imageUrl,
+    this.dietaryPreference,
+    this.favouriteRecipes,
+    this.nutritionInfo,
+  });
 }

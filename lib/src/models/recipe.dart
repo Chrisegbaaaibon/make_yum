@@ -14,16 +14,17 @@ class Recipe {
   String? author;
   String? authorImageUrl;
 
-  Recipe(
-      {required this.title,
-      required this.ingredients,
-      required this.instructions,
-      required this.cookingTime,
-      this.imageUrl,
-      this.nutritionInfo,
-      this.category,
-      this.difficulty,
-      this.rating,
-      this.author,
-      this.authorImageUrl});
+  Recipe({
+    required this.title,
+    required this.ingredients,
+    required this.instructions,
+    required this.cookingTime,
+    this.imageUrl,
+    this.nutritionInfo,
+    this.category,
+    this.difficulty,
+    this.rating,
+    this.author,
+    this.authorImageUrl,
+  });
 }
