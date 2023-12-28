@@ -17,8 +17,8 @@ class _HomeViewState extends State<HomeView> {
   static final List<Widget> _widgetOptions = <Widget>[
     const GridViewBuilderView(),
     const SearchView(),
-    const ProfileView(),
     const CategoryView(),
+    const ProfileView()
   ];
 
   void _onItemTapped(int index) {
@@ -59,13 +59,13 @@ class _HomeViewState extends State<HomeView> {
             label: 'Search',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category_rounded),
+            icon: Icon(Icons.category),
             label: 'Categories',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle),
+            label: 'Profile',
+          )
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
