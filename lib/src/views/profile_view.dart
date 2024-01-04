@@ -90,41 +90,77 @@ class ProfileView extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
+              Center(
+                child: CircleAvatar(
+                  radius: 50.0,
+                  backgroundImage: NetworkImage(
+                    recipe.authorImageUrl ??
+                        'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10.0),
+              Center(
+                child: Text(
+                  recipe.author ?? 'No Author',
+                  style: const TextStyle(fontSize: 20.0),
+                ),
+              ),
+              const SizedBox(height: 10.0),
+              Center(
+                child: Row(
+                  mainAxisSize: MainAxisSize
+                      .min, // Aligns the Row's children to the center
+                  children: [
+                    Text(
+                      'Rating: ${recipe.rating}',
+                      style: const TextStyle(fontSize: 20.0),
+                    ),
+                    const SizedBox(width: 5.0), // Space between text and icon
+                    const Icon(
+                      Icons.star,
+                      color: Colors.orange,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20.0),
               Center(
                 child: Text(
                   recipe.title,
                   style: const TextStyle(fontSize: 20.0),
                 ),
               ),
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 8.0),
               Center(
                 child: Text(
                   recipe.category ?? 'No Category',
                   style: const TextStyle(fontSize: 20.0),
                 ),
               ),
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 8.0),
               Center(
                 child: Text(
                   recipe.cookingTime,
                   style: const TextStyle(fontSize: 20.0),
                 ),
               ),
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 8.0),
               Center(
                 child: Text(
                   recipe.difficulty ?? 'No Descriptin',
                   style: const TextStyle(fontSize: 20.0),
                 ),
               ),
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 8.0),
               Center(
                 child: Text(
                   recipe.difficulty ?? 'No Difficulty',
                   style: const TextStyle(fontSize: 20.0),
                 ),
               ),
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 8.0),
               ...recipe.ingredients
                   .map((ingredient) => Center(
                         child: Text(
@@ -133,14 +169,14 @@ class ProfileView extends StatelessWidget {
                         ),
                       ))
                   .toList(),
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 8.0),
               Center(
                 child: Text(
                   recipe.instructions,
                   style: const TextStyle(fontSize: 20.0),
                 ),
               ),
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 15.0),
               const Text(
                 'Nutrition Info:',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
@@ -167,43 +203,7 @@ class ProfileView extends StatelessWidget {
               Center(
                 child: Text('Other: ${recipe.nutritionInfo?.other}'),
               ),
-              const SizedBox(height: 10.0),
-              Center(
-                child: Text(
-                  recipe.author ?? 'No Author',
-                  style: const TextStyle(fontSize: 20.0),
-                ),
-              ),
-              const SizedBox(height: 10.0),
-              Center(
-                child: CircleAvatar(
-                  radius: 50.0,
-                  backgroundImage: NetworkImage(
-                    recipe.authorImageUrl ??
-                        'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10.0),
-              const SizedBox(height: 10.0),
-              Center(
-                child: Row(
-                  mainAxisSize: MainAxisSize
-                      .min, // Aligns the Row's children to the center
-                  children: [
-                    Text(
-                      'Rating: ${recipe.rating}',
-                      style: const TextStyle(fontSize: 20.0),
-                    ),
-                    const SizedBox(width: 5.0), // Space between text and icon
-                    const Icon(
-                      Icons.star,
-                      color: Colors.orange,
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 20.0),
             ],
           ),
         );
@@ -219,15 +219,45 @@ class ProfileView extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          const SizedBox(height: 10.0),
-          const Center(
-            child: CircleAvatar(
-              radius: 50.0,
-              backgroundImage: NetworkImage(
-                'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
-              ),
+          SizedBox(height: 10.0),
+          Center(
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                CircleAvatar(
+                  radius: 50.0,
+                  backgroundImage: NetworkImage(
+                    'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+                  ),
+                ),
+                Positioned(
+                  bottom: 0.0,
+                  right: 0.0,
+                  child: InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 30.0, // Adjust size as needed
+                      width: 30.0, // Adjust size as needed
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Theme.of(context)
+                              .scaffoldBackgroundColor, // Removed const
+                          width: 1.5,
+                        ),
+                        color: Colors.blueGrey,
+                      ),
+                      child: const Icon(
+                        Icons.edit,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
+
           const SizedBox(height: 10.0),
           Center(
             child: Text(
@@ -314,7 +344,7 @@ class ProfileView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(25.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Text(
                   'Nutrition Info',
